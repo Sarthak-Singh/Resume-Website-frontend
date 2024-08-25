@@ -54,7 +54,7 @@
 
 #logo {
     font-size: 35px;
-    font-family: Coda;
+    font-family: Caveat;
     text-decoration: none;
     color: white;
     opacity: 90%;
@@ -66,7 +66,7 @@
     left: 0;
     top: 0;
     width: 100%;
-    height: 635px;
+    height: 636px;
     z-index: 1;
     pointer-events: none;
     user-select: none;
@@ -321,13 +321,19 @@
 }
 .thumbnail .caption a{
     color: white;
-    opacity: 60%;
+    opacity: 100%;
     font-weight: bold;
     cursor: pointer;
     text-decoration: none;
 }
+
 #projects a{
     cursor: pointer;
+}
+.thumbnail:hover{
+    border-color: rgb(255, 100, 120);
+    opacity: 1;
+    transition-duration: 0.5s;
 }
 .thumbnail .caption ul{
     text-align: left;
@@ -486,6 +492,12 @@
     font-family: Nunito;
     font-size: 16px;
     margin-top: -5px;
+}
+.contact a{
+    color: white;
+    opacity: 100%;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 #message{

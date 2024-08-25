@@ -107,7 +107,7 @@ function changeNavbar(){
 
 
 // Flashing - text ////////////////////////////////////////////////////////
-var terms = ["Sarthak Singh.", "A Software Developer.", "A Web Developer.", "An Artist."];
+var terms = ["Sarthak Singh.", "A Solution Integrator.", "A Software Developer.", "A Web Developer.", "An Artist."];
 function rotateTerm() {
     var ct = $("#flash-text").data("term") || 0;
     $("#flash-text").data("term", ct == terms.length -1 ? 0 : ct + 1).text(terms[ct]).fadeIn(3000)
