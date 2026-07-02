@@ -18,6 +18,14 @@
     background: #555;
 }
 
+a:focus:not(:focus-visible) {
+    outline: none;
+}
+
+button:focus:not(:focus-visible) {
+    outline: none;
+}
+
 #navbar {
     position: fixed;
     z-index: 3;
