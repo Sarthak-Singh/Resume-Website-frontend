@@ -30,8 +30,8 @@ $(document).ready(function(){
                 scrollTop: $(hash).offset().top + off
             }, 1000, function(){
                 scrollBy(0, off);
-            // Add hash (#) to URL when done scrolling (default click behavior)
-            window.location.hash = hash;
+                // Add hash (#) to URL when done scrolling (default click behavior)
+                window.location.hash = hash;
             });
         }
     });
@@ -107,13 +107,51 @@ function changeNavbar(){
 
 
 // Flashing - text ////////////////////////////////////////////////////////
-var terms = ["Sarthak Singh.", "A Solution Integrator.", "A Software Developer.", "A Web Developer.", "An Artist."];
+var terms = ["Sarthak Singh.", "A Graduate Student.", "A Software Engineer.", "A Web Developer.", "An Artist."];
 function rotateTerm() {
     var ct = $("#flash-text").data("term") || 0;
     $("#flash-text").data("term", ct == terms.length -1 ? 0 : ct + 1).text(terms[ct]).fadeIn(3000)
   						.delay(2000).fadeOut(3000, rotateTerm);
 }
 ///////////////////////////////////////////////////////////////////////////
+
+
+// Fix carousel height jumping ////////////////////////////////////////////
+$(document).ready(function() {
+    function equaliseCarouselHeight() {
+        // First reset all padding to base values
+        $('#training_carousel .item .carousel-caption').css({
+            'padding-top': '40px',
+            'padding-bottom': '70px'
+        });
+
+        // Now measure natural heights
+        var maxHeight = 0;
+        $('#training_carousel .item').each(function() {
+            var h = $(this).outerHeight(true);
+            if (h > maxHeight) maxHeight = h;
+        });
+
+        // Apply equal padding to shorter slides to centre content
+        $('#training_carousel .item').each(function() {
+            var h = $(this).outerHeight(true);
+            var diff = maxHeight - h;
+            var pad = Math.floor(diff / 2);
+            if (pad > 0) {
+                $(this).find('.carousel-caption').css({
+                    'padding-top': (40 + pad) + 'px',
+                    'padding-bottom': (70 + pad) + 'px'
+                });
+            }
+        });
+
+        $('#training_carousel .carousel-inner').css('min-height', maxHeight + 'px');
+    }
+    equaliseCarouselHeight();
+    $(window).on('resize', equaliseCarouselHeight);
+});
+///////////////////////////////////////////////////////////////////////////
+
 
 // For Gallery Modal///////////////////////////////////////////////////////
 function openModal() {
